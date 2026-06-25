@@ -13,14 +13,17 @@ def calculate_total(bill_amount, tip_amount):
     return total_price
 
 def calculate_per_person(total_price, people_number):
-    per_person = total_price / people_number
-    return per_person
+    if people_number <=0:
+        print("Number of people must be greater than 0")
+    else:
+        per_person = total_price / people_number
+        return per_person
 
 #call functions and save the result
 tip_amount = calculate_tip(bill_amount, tip_percentage)
 total_bill = calculate_total(bill_amount, tip_amount)
 amount_per_person = calculate_per_person(total_bill, people_number)
 
-print(f"Tip Amount: {tip_amount}")
-print(f"Total Bill: {total_bill}")
-print(f"Amount Per Person: {amount_per_person}")
+print(f"Tip Amount: ${tip_amount:.2f}")
+print(f"Total Bill: ${total_bill:.2f}")
+print(f"Amount Per Person: ${amount_per_person:.2f}")
